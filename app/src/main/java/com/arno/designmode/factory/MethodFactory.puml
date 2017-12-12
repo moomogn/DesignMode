@@ -1,0 +1,51 @@
+@startuml
+
+FactoryA .down.> IFactory
+ProductA <|-down- FactoryA
+ProductA .up.> IProduct
+
+IFactory <.down. FactoryB
+ProductB <|-down- FactoryB
+IProduct <.up. ProductB
+
+'IFactory <.down. FactoryC
+'ProductC <|-down- FactoryC
+'IProduct <.up. ProductC
+
+interface IProduct{
+    void use()
+}
+
+interface IFactory{
+    IProduct createProduct()
+}
+
+class ProductA{
+    someFields
+    someMethods()
+}
+
+class ProductB{
+    someFields
+    someMethods()
+}
+
+'class ProductC{
+'    someFields
+'    someMethods()
+'}
+
+class FactoryA{
+    IProduct createProduct()
+}
+
+class FactoryB{
+    IProduct createProduct()
+}
+
+'class FactoryC{
+'    IProduct createProduct()
+'}
+
+
+@enduml

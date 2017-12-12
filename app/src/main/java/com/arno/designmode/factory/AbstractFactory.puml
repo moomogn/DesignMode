@@ -1,0 +1,27 @@
+@startuml
+
+
+class LenovoComputerFactory
+class AcerComputerFactory
+class LenovoComputer
+class AcerComputer
+
+LenovoComputerFactory .> IComputerFactory
+LenovoComputerFactory --|> LenovoComputer
+LenovoComputer .> IComputer
+
+IComputerFactory <. AcerComputerFactory
+AcerComputerFactory --|> AcerComputer
+IComputer <. AcerComputer
+
+interface IComputerFactory{
+    IComputer createComputerA()
+    IComputer createComputerB()
+}
+
+interface IComputer{
+    void work()
+    void study()
+}
+
+@enduml

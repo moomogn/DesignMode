@@ -1,0 +1,26 @@
+@startuml
+
+ProductA .> Product
+Product <. ProductB
+ProductA <|-- Factory
+ProductB <|-- Factory
+
+interface Product{
+    void use()
+}
+
+class ProductA{
+    someFields
+    someMethods()
+}
+
+class ProductB{
+    someFields
+    someMethods()
+}
+
+class Factory{
+    Product createProduct(string)
+}
+
+@enduml
